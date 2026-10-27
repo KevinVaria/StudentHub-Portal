@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Register - StudentHub</title><link rel="stylesheet" href="style.css"></head>
+<body><header><h1>StudentHub</h1><nav><a href="index.html">Home</a><a href="login.html">Login</a></nav></header>
+<main><h1>Student Registration</h1>
+<form id="registrationForm" novalidate>
+<label>Full Name<input id="name" type="text" required></label><small id="nameError"></small>
+<label>Email<input id="email" type="email" required></label><small id="emailError"></small>
+<label>Mobile<input id="mobile" type="tel" placeholder="10 digit Indian mobile" required></label><small id="mobileError"></small>
+<label>Password<input id="password" type="password" required></label><small id="passwordError"></small>
+<label>Confirm Password<input id="confirmPassword" type="password" required></label><small id="confirmError"></small>
+<label>Course<select id="course" required><option value="">Select</option><option>BCA</option><option>B.Tech</option><option>BBA</option><option>MCA</option></select></label>
+<label>Year<select id="year" required><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+<fieldset><legend>Gender</legend><label><input type="radio" name="gender" value="Male"> Male</label><label><input type="radio" name="gender" value="Female"> Female</label><label><input type="radio" name="gender" value="Other"> Other</label></fieldset>
+<label><input id="terms" type="checkbox"> I accept the terms and conditions.</label><small id="termsError"></small>
+<button type="submit">Create Account</button><p id="success" role="status"></p>
+</form></main><script src="validation.js"></script></body></html>

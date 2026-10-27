@@ -1,0 +1,10 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Events - StudentHub</title><link rel="stylesheet" href="style.css"></head>
+<body><header><h1>StudentHub</h1><nav><a href="index.html">Home</a><a href="register.html">Register</a></nav></header><main><h1>Events from MySQL</h1>
+<div class="filters"><input id="search" placeholder="Search events"><select id="category"><option value="all">All</option><option>Technology</option><option>Sports</option><option>Cultural</option><option>Career</option></select></div>
+<div id="events" class="grid"></div></main><script>
+let all=[];fetch('api/events.php').then(r=>r.json()).then(d=>{all=d;render()});
+function render(){let q=document.getElementById('search').value.toLowerCase(),c=document.getElementById('category').value;
+let a=all.filter(x=>(x.title.toLowerCase().includes(q)||x.location.toLowerCase().includes(q))&&(c==='all'||x.category===c));
+document.getElementById('events').innerHTML=a.map(x=>`<article class="card"><h2>${x.title}</h2><p>${x.category} | ${x.date}</p><p>${x.location}</p><p>${x.description||''}</p></article>`).join('')||'<p>No events found.</p>'}
+document.getElementById('search').oninput=render;document.getElementById('category').onchange=render;
+</script></body></html>

@@ -1,0 +1,34 @@
+STUDENTHUB ER MODEL
+
+STUDENTS
+- id (PK)
+- name
+- email
+- mobile
+- password_hash
+- course
+- year
+- gender
+- created_at
+        |
+        | 1-to-many
+        v
+REGISTRATIONS
+- id (PK)
+- student_id (FK -> students.id)
+- event_id (FK -> events.id)
+- registered_at
+        ^
+        | many-to-1
+        |
+EVENTS
+- id (PK)
+- title
+- category
+- event_date
+- location
+- description
+- created_at
+
+A student can register for many events.
+An event can have many student registrations.
